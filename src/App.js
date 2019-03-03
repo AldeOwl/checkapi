@@ -30,8 +30,8 @@ class App extends Component {
   };
 
   onInputChange = (ev) => {
-    this.setState({ ip: ev.target.value });
-    localStorage.setItem('ip', this.state.ip);
+    this.setState({ip: ev.target.value});
+    localStorage.setItem('ip', ev.target.value);
   };
 
   checkIp() {
@@ -49,7 +49,8 @@ class App extends Component {
           ...ipList,
           newIp
         ];
-
+        
+        localStorage.setItem('ip', this.state.ip);
         localStorage.setItem('ipList', JSON.stringify(newIpList));
         
         return { ipList: newIpList };
@@ -61,6 +62,10 @@ class App extends Component {
     ev.preventDefault();
     this.checkIp();
 
+  };
+  updateStorage = () => {
+    const ip = this.state.ip;
+    localStorage.setItem('ip', ip);
   };
 
   render() {

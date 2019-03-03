@@ -18,6 +18,7 @@ const Input = ({ ip, onInputChange, status }) => {
                 onChange={onInputChange}
                 className={`input ${statusList[status]}`}
                 type='text'
+                placeholder='введите IP адрес'
                 required />
             <button className="input__btn" >Check IP</button>
         </>
